@@ -42,7 +42,10 @@ export type ExpandedTask = Pick<Task, 'id' | 'order' | 'title' | 'description' |
     };
     labels: LabelSummary[];
     checklists: ChecklistSummary[];
+    assignedTo: UserSummary | null;
 };
+
+export type UserSummary = Pick<User, 'id' | 'name' | 'image' | 'email'>;
 
 export type LabelSummary = Pick<Label, 'id' | 'title' | 'color'>;
 
@@ -52,6 +55,8 @@ export type ActivityWithUser = Pick<Activity, 'id' | 'type' | 'content' | 'creat
     newColumn: Pick<Column, 'title'> | null,
     originalColumn: Pick<Column, 'title'> | null
     task: Pick<Task, 'title'> | null
+    newAssignedToId: string | null;
+    oldAssignedToId: string | null;
 };
 
 

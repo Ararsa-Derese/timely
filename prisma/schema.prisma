@@ -65,6 +65,7 @@ model VerificationToken {
 enum Role {
   member
   owner
+  admin
 }
 
 model BoardMember {
@@ -190,6 +191,8 @@ model Activity {
   newColumn      Column?       @relation("NewColumn", fields: [newColumnId], references: [id])
   originalColumnId String?
   originalColumn Column?       @relation("OriginalColumn", fields: [originalColumnId], references: [id])
+  oldAssignedToId String?
+  newAssignedToId String?
 }
 
 
@@ -198,6 +201,9 @@ enum ActivityType {
   TASK_UPDATED
   TASK_MOVED
   TASK_DELETED
+  TASK_ASSIGNED
+  TASK_ASSIGNED_TO_SELF
+  TASK_UNASSIGNED
   COMMENT_ADDED
   BOARD_UPDATED
   START_DATE_ADDED

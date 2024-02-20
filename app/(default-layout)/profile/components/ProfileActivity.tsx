@@ -29,8 +29,14 @@ const getActivityMessage = (activity: ActivityWithUser) => {
             return <>Changed the due date of {bold(taskTitle)} to {bold(formatDate(activity.dueDate))}</>;
         case 'DUE_DATE_REMOVED':
             return <>Removed the due date of {bold(taskTitle)}</>;
-        default:
-            return <>{activity.content}</>;
+        // case 'TASK_ASSIGNED':
+        //     return <>Assigned {bold(taskTitle)} to {bold(activity.user?.name ?? 'Unknown User')}</>;
+        // case 'TASK_UNASSIGNED':
+        //     return <>Unassigned {bold(taskTitle)} from {bold(activity.user?.name ?? 'Unknown User')}</>;
+        // case 'TASK_ASSIGNED_TO_SELF':
+        //     return <>Assigned {bold(taskTitle)} to yourself</>;
+        // default:
+        //     return <>{activity.content}</>;
     }
 };
 
